@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>The Pawn Simulator</h2>
+  <form class="form-inline">
+    <label for="initialPlace" class="mb-2 mr-sm-2">Initial Place:</label>
+    <input type="text" class="form-control mb-2 mr-sm-2 w-50" id="initialPlace" placeholder="X,Y,F,C"
+      name="initialPosition" [(ngModel)]="initialPosition">
+      <div class="alert alert-danger w-50" role="alert" *ngIf="isShowError">
+        Please enter valid place (i.e., 0,0,North,White)
+      </div>
+    <div class="mb-2 m-1">
+      <button type="button" class="btn btn-primary" [disabled]="!initialPosition.length" (click)="placePawns()">
+        Place Pawn </button>
+    </div>
+
+    <div class="mb-2">
+      <button type="button" class="btn btn-primary m-1" [disabled]="!isPawnPlaced || !initialPosition.length"
+        (click)="movePawn()"> Move Pawn </button>
+      <button type="button" class="btn btn-primary m-1" [disabled]="!isPawnPlaced || !initialPosition.length"
+        (click)="changeDirection(true)"> Rotate Left </button>
+      <button type="button" class="btn btn-primary m-1" [disabled]="!isPawnPlaced || !initialPosition.length"
+        (click)="changeDirection(false)"> Rotate Right </button>
+    </div>
+    <div >
+      <button type="button" class="btn btn-success m-1" [disabled]="!isPawnPlaced || !initialPosition.length" (click)="showReport()"> Report </button>
+      <button type="button" class="btn btn-danger m-1" (click)="clearBoard()">Clear </button>
+
+      <div *ngIf="report.length">
+        <strong>Output: {{ report }} </strong>
+      </div>
+    </div>
+  </form>
+</div>
