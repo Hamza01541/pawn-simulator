@@ -35,3 +35,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Displayed report
 - Clear form on clear button
 - Unit test for possible scenarios
+- Created UI for user's interactivity
